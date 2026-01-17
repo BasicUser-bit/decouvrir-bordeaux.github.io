@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>ÉLYSIUM WATCHES</title>
+
+<style>
+body{
+    margin:0;
+    background:#0b0b0b;
+    color:#f5f5f5;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ===== HEADER ===== */
+header{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    padding:30px;
+    border-bottom:1px solid #222;
+    background:#0f0f0f;
+}
+.logo{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#c9a24d,#f5d27a);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#000;
+    font-weight:bold;
+}
+header h1{
+    margin:0;
+    letter-spacing:2px;
+}
+
+/* ===== GRILLE PRODUITS ===== */
+main{
+    max-width:1100px;
+    margin:40px auto;
+    padding:0 20px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+.card{
+    background:#141414;
+    border:1px solid #2a2a2a;
+    border-radius:14px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.3s;
+}
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 30px rgba(0,0,0,.6);
+}
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+.card-content{
+    padding:20px;
+    text-align:center;
+}
+.card-content h2{
+    margin:0 0 10px;
+}
+.price{
+    color:#c9a24d;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* ===== MODAL PRODUIT ===== */
+#productView{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+}
+.product-box{
+    background:#111;
+    max-width:900px;
+    width:90%;
+    border-radius:16px;
+    padding:30px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+.product-box img{
+    width:100%;
+    border-radius:12px;
+}
+.product-info h2{
+    margin-top:0;
+    font-size:28px;
+}
+.product-info ul{
+    padding-left:18px;
+}
+.buy-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 30px;
+    border-radius:30px;
+    background:#c9a24d;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+}
+.close{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    text-align:center;
+    padding:30px;
+    color:#777;
+    border-top:1px solid #222;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">EW</div>
+    <h1>ÉLYSIUM WATCHES</h1>
+</header>
+
+<main>
+<div class="grid">
+
+<!-- ===== PRODUIT 1 ===== -->
+<div class="card" onclick="openProduct(0)">
+    <img src="data:image/svg+xml;utf8,
+    <svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'>
+    <defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+    <stop offset='0%' stop-color='%23111'/>
+    <stop offset='100%' stop-color='%23c9a24d'/>
+    </linearGradient></defs>
+    <rect width='100%' height='100%' fill='url(%23g)'/>
+    <text x='50%' y='55%' fill='white' font-size='32' text-anchor='middle'>AURELIA</text>
+    </svg>">
+    <div class="card-content">
+        <h2>Aurelia Gold</h2>
+        <div class="price">1 590 €</div>
+    </div>
+</div>
+
+<!-- ===== PRODUIT 2 ===== -->
+<div class="card" onclick="openProduct(1)">
+    <img src="data:image/svg+xml;utf8,
+    <svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'>
+    <defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+    <stop offset='0%' stop-color='%23000'/>
+    <stop offset='100%' stop-color='%23555555'/>
+    </linearGradient></defs>
+    <rect width='100%' height='100%' fill='url(%23g)'/>
+    <text x='50%' y='55%' fill='white' font-size='32' text-anchor='middle'>NOCTIS</text>
+    </svg>">
+    <div class="card-content">
+        <h2>Noctis Steel</h2>
+        <div class="price">1 290 €</div>
+    </div>
+</div>
+
+<!-- ===== PRODUIT 3 ===== -->
+<div class="card" onclick="openProduct(2)">
+    <img src="data:image/svg+xml;utf8,
+    <svg xmlns='http://www.w3.org/2000/svg' width='400' height='300'>
+    <defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+    <stop offset='0%' stop-color='%23202020'/>
+    <stop offset='100%' stop-color='%238b0000'/>
+    </linearGradient></defs>
+    <rect width='100%' height='100%' fill='url(%23g)'/>
+    <text x='50%' y='55%' fill='white' font-size='32' text-anchor='middle'>IMPERIUM</text>
+    </svg>">
+    <div class="card-content">
+        <h2>Imperium Red</h2>
+        <div class="price">1 890 €</div>
+    </div>
+</div>
+
+</div>
+</main>
+
+<!-- ===== FENÊTRE PRODUIT ===== -->
+<div id="productView">
+    <div class="close" onclick="closeProduct()">✕</div>
+    <div class="product-box">
+        <img id="pImg">
+        <div class="product-info">
+            <h2 id="pTitle"></h2>
+            <p id="pDesc"></p>
+            <ul id="pSpecs"></ul>
+            <div class="price" id="pPrice"></div>
+            <a href="achat.html" class="buy-btn">Acheter</a>
+
+        </div>
+    </div>
+</div>
+
+<footer>
+© 2026 — Projet SNT — Boutique de montres de luxe
+</footer>
+
+<script>
+const products = [
+{
+    title:"Aurelia Gold",
+    desc:"Une montre d’exception alliant élégance classique et modernité.",
+    price:"1 590 €",
+    specs:[
+        "Boîtier en acier doré",
+        "Bracelet cuir noir",
+        "Étanchéité 50m",
+        "Mouvement quartz suisse"
+    ],
+    img:document.querySelectorAll(".card img")[0].src
+},
+{
+    title:"Noctis Steel",
+    desc:"Design sobre et puissant pour les amateurs de luxe discret.",
+    price:"1 290 €",
+    specs:[
+        "Boîtier acier brossé",
+        "Bracelet acier",
+        "Verre saphir",
+        "Chronographe intégré"
+    ],
+    img:document.querySelectorAll(".card img")[1].src
+},
+{
+    title:"Imperium Red",
+    desc:"Un style audacieux pour une montre qui ne passe jamais inaperçue.",
+    price:"1 890 €",
+    specs:[
+        "Boîtier noir mat",
+        "Bracelet silicone rouge",
+        "Étanchéité 100m",
+        "Affichage date"
+    ],
+    img:document.querySelectorAll(".card img")[2].src
+}
+];
+
+function openProduct(i){
+    const p = products[i];
+    document.getElementById("pTitle").textContent = p.title;
+    document.getElementById("pDesc").textContent = p.desc;
+    document.getElementById("pPrice").textContent = p.price;
+    document.getElementById("pImg").src = p.img;
+
+    const ul = document.getElementById("pSpecs");
+    ul.innerHTML = "";
+    p.specs.forEach(s=>{
+        const li=document.createElement("li");
+        li.textContent=s;
+        ul.appendChild(li);
+    });
+
+    document.getElementById("productView").style.display="flex";
+}
+
+function closeProduct(){
+    document.getElementById("productView").style.display="none";
+}
+</script>
+
+</body>
+</html>
